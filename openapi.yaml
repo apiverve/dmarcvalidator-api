@@ -1,0 +1,79 @@
+openapi: 3.0.4
+info:
+  title: DMARC Validator
+  description: DMARC Validator checks the Domain-based Message Authentication, Reporting and Conformance (DMARC) record for a domain to ensure it is correctly configured.
+  termsOfService: https://apiverve.com/terms/
+  contact:
+    name: APIVerve Support
+    email: hello@apiverve.com
+    url: https://apiverve.com/contact
+  version: 1.0.9
+externalDocs:
+  description: Learn more about APIVerve
+  url: https://docs.apiverve.com?utm_source=openapi
+servers:
+- url: https://api.apiverve.com/
+paths:
+  /v1/dmarcvalidator:
+    get:
+      summary: Validate DMARC Record
+      description: DMARC Validator checks the Domain-based Message Authentication, Reporting and Conformance (DMARC) record for a domain to ensure it is correctly configured.
+      operationId: dmarcvalidator
+      parameters:
+      - name: domain
+        in: query
+        schema:
+          type: string
+        required: true
+        description: The domain to validate the DMARC record for
+        example: paypal.com
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: status
+                  error:
+                    type: string
+                    description: error
+                  data:
+                    type: string
+                    description: data
+              example:
+                status: ok
+                error: 
+                data:
+                  dmarcHost: _dmarc.paypal.com
+                  dmarc_record: v=DMARC1; p=reject; rua=mailto:d@rua.agari.com; ruf=mailto:d@ruf.agari.com
+                  hasDmarc: true
+                  host: paypal.com
+                  p: reject
+                  rua:
+                    domain: rua.agari.com
+                    email: d@rua.agari.com
+                    valid: true
+                  ruf:
+                    domain: ruf.agari.com
+                    email: d@ruf.agari.com
+                    valid: true
+                  v: DMARC1
+                  valid: true
+        '401':
+          description: Your request was not authorized, or your API Key was invalid
+        '404':
+          description: Requested resource was not found
+        '500':
+          description: A server error has occured, try again later
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
+security:
+- api_key: []
