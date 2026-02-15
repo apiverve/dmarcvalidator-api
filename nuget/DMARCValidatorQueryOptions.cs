@@ -12,7 +12,6 @@ namespace APIVerve.API.DMARCValidator
     {
         /// <summary>
         /// The domain to validate the DMARC record for
-        /// Example: paypal.com
         /// </summary>
         [JsonProperty("domain")]
         public string Domain { get; set; }
