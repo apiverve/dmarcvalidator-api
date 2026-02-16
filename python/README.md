@@ -232,8 +232,9 @@ from apiverve_dmarcvalidator.apiClient import DmarcvalidatorAPIClient
 
 api = DmarcvalidatorAPIClient("[YOUR_API_KEY]")
 
+query = { "domain": "paypal.com" }
+
 try:
-    query = { "domain": "paypal.com" }
     result = api.execute(query)
     print(result)
 finally:
