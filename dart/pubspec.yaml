@@ -1,0 +1,16 @@
+name: apiverve_dmarcvalidator
+description: DMARC Validator checks the Domain-based Message Authentication, Reporting and Conformance (DMARC) record for a domain to ensure it is correctly configured.
+version: 1.1.14
+homepage: https://dmarcvalidator.apiverve.com?utm_source=dart&utm_medium=homepage
+repository: https://github.com/apiverve/dmarcvalidator-api/tree/main/dart
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  http: ^1.1.0
+  http_parser: ^4.0.0
+
+dev_dependencies:
+  lints: ^3.0.0
+  test: ^1.24.0
