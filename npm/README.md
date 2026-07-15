@@ -122,23 +122,26 @@ async function makeRequest() {
   "status": "ok",
   "error": null,
   "data": {
-    "dmarcHost": "_dmarc.paypal.com",
-    "dmarc_record": "v=DMARC1; p=reject; rua=mailto:d@rua.agari.com; ruf=mailto:d@ruf.agari.com",
-    "hasDmarc": true,
     "host": "paypal.com",
-    "p": "reject",
+    "dmarcHost": "_dmarc.paypal.com",
+    "hasDmarc": true,
+    "dmarc_record": "v=DMARC1; p=reject; rua=mailto:d@rua.agari.com; ruf=mailto:d@ruf.agari.com",
     "rua": {
-      "domain": "rua.agari.com",
       "email": "d@rua.agari.com",
+      "domain": "rua.agari.com",
       "valid": true
     },
     "ruf": {
-      "domain": "ruf.agari.com",
       "email": "d@ruf.agari.com",
+      "domain": "ruf.agari.com",
       "valid": true
     },
     "v": "DMARC1",
-    "valid": true
+    "p": "reject",
+    "valid": true,
+    "isEnforced": true,
+    "riskScore": 5,
+    "riskLevel": "low"
   }
 }
 ```
