@@ -71,6 +71,9 @@ paths:
                   v: DMARC1
                   p: reject
                   valid: true
+                  isEnforced: true
+                  riskScore: 5
+                  riskLevel: low
         '401':
           description: Your request was not authorized, or your API Key was invalid
         '404':
