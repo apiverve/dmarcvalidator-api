@@ -30,7 +30,11 @@ The DMARC Validator API provides a simple, reliable way to integrate dmarc valid
 ```javascript
 async function callDMARCValidatorAPI() {
     try {
-        const response = await fetch('https://api.apiverve.com/v1/dmarcvalidator', {
+        const params = new URLSearchParams({
+            domain: 'paypal.com'
+        });
+
+        const response = await fetch(`https://api.apiverve.com/v1/dmarcvalidator?${params}`, {
             method: 'GET',
             headers: {
                 'x-api-key': 'YOUR_API_KEY_HERE'
@@ -50,7 +54,7 @@ callDMARCValidatorAPI();
 ### Using cURL
 
 ```bash
-curl -X GET "https://api.apiverve.com/v1/dmarcvalidator?param=value" \
+curl -X GET "https://api.apiverve.com/v1/dmarcvalidator?domain=paypal.com" \
   -H "x-api-key: YOUR_API_KEY_HERE"
 ```
 
@@ -150,7 +154,7 @@ go get github.com/apiverve/dmarcvalidator-api/go
 |---------|---------|
 | **Multi-language SDKs** | Native packages for JavaScript, Python, C#, Go, and Android |
 | **Simple Integration** | Single API key authentication, consistent response format |
-| **Production Ready** | 99.9% uptime, fast response times, used by thousands of developers |
+| **Production Ready** | 99.9% uptime SLA, served from 24 global regions |
 | **Comprehensive Docs** | Full examples, OpenAPI spec, and dedicated support |
 
 ---
@@ -169,7 +173,7 @@ go get github.com/apiverve/dmarcvalidator-api/go
 The DMARC Validator API is commonly used for:
 
 - **Web Applications** - Add dmarc validator features to your frontend or backend
-- **Mobile Apps** - Native SDKs for iOS and Android development
+- **Mobile Apps** - Native SDKs for Android development
 - **Automation** - Integrate with n8n, Zapier, or custom workflows
 - **SaaS Products** - Enhance your product with dmarc validator capabilities
 - **Data Pipelines** - Process and analyze data at scale
