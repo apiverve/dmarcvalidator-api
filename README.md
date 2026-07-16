@@ -191,11 +191,47 @@ x-api-key: YOUR_API_KEY_HERE
 Get your API key: [https://apiverve.com](https://apiverve.com)
 
 ### Response Format
-All responses are JSON with this structure:
+
+Every APIVerve endpoint returns the same envelope — check `status`, then read `data`:
+
 ```json
 {
   "status": "ok",
+  "error": null,
   "data": { ... }
+}
+```
+
+### Example Response
+
+A real response from the DMARC Validator API:
+
+```json
+{
+  "status": "ok",
+  "error": null,
+  "data": {
+    "host": "paypal.com",
+    "dmarcHost": "_dmarc.paypal.com",
+    "hasDmarc": true,
+    "dmarc_record": "v=DMARC1; p=reject; rua=mailto:d@rua.agari.com; ruf=mailto:d@ruf.agari.com",
+    "rua": {
+      "email": "d@rua.agari.com",
+      "domain": "rua.agari.com",
+      "valid": true
+    },
+    "ruf": {
+      "email": "d@ruf.agari.com",
+      "domain": "ruf.agari.com",
+      "valid": true
+    },
+    "v": "DMARC1",
+    "p": "reject",
+    "valid": true,
+    "isEnforced": true,
+    "riskScore": 5,
+    "riskLevel": "low"
+  }
 }
 ```
 
