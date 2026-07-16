@@ -25,24 +25,24 @@ namespace APIVerve.API.DMARCValidator
 
         [JsonProperty("data")]
         public Data Data { get; set; }
+
+        [JsonProperty("premium")]
+        public Premium Premium { get; set; }
     }
 
     public partial class Data
     {
-        [JsonProperty("dmarcHost")]
-        public string DmarcHost { get; set; }
-
-        [JsonProperty("dmarc_record")]
-        public string DmarcRecord { get; set; }
-
-        [JsonProperty("hasDmarc")]
-        public bool HasDmarc { get; set; }
-
         [JsonProperty("host")]
         public string Host { get; set; }
 
-        [JsonProperty("p")]
-        public string P { get; set; }
+        [JsonProperty("dmarcHost")]
+        public string DmarcHost { get; set; }
+
+        [JsonProperty("hasDmarc")]
+        public bool? HasDmarc { get; set; }
+
+        [JsonProperty("dmarc_record")]
+        public string DmarcRecord { get; set; }
 
         [JsonProperty("rua")]
         public Rua Rua { get; set; }
@@ -53,19 +53,43 @@ namespace APIVerve.API.DMARCValidator
         [JsonProperty("v")]
         public string V { get; set; }
 
+        [JsonProperty("p")]
+        public string P { get; set; }
+
         [JsonProperty("valid")]
-        public bool Valid { get; set; }
+        public bool? Valid { get; set; }
+
+        [JsonProperty("isEnforced")]
+        public bool? IsEnforced { get; set; }
+
+        [JsonProperty("riskScore")]
+        public long? RiskScore { get; set; }
+
+        [JsonProperty("riskLevel")]
+        public string RiskLevel { get; set; }
     }
 
     public partial class Rua
     {
-        [JsonProperty("domain")]
-        public string Domain { get; set; }
-
         [JsonProperty("email")]
         public string Email { get; set; }
 
+        [JsonProperty("domain")]
+        public string Domain { get; set; }
+
         [JsonProperty("valid")]
-        public bool Valid { get; set; }
+        public bool? Valid { get; set; }
+    }
+
+    public partial class Premium
+    {
+        [JsonProperty("message")]
+        public string Message { get; set; }
+
+        [JsonProperty("upgrade_url")]
+        public Uri UpgradeUrl { get; set; }
+
+        [JsonProperty("locked_fields")]
+        public string[] LockedFields { get; set; }
     }
 }
