@@ -1,13 +1,13 @@
-# [DMARC Validator API](https://dmarcvalidator.apiverve.com?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+# [DMARC Validator API](https://apiverve.com/marketplace/dmarcvalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 
-DMARC Validator checks the Domain-based Message Authentication, Reporting and Conformance (DMARC) record for a domain to ensure it is correctly configured.
+DMARC Validator is a DMARC record validator API that checks the Domain-based Message Authentication, Reporting and Conformance (DMARC) record for a domain to ensure it is correctly configured.
 
 The DMARC Validator API provides a simple, reliable way to integrate dmarc validator functionality into your applications. Built for developers who need production-ready dmarc validator capabilities without the complexity of building from scratch.
 
-**[View API Details →](https://dmarcvalidator.apiverve.com?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)**
+**[View API Details →](https://apiverve.com/marketplace/dmarcvalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://dmarcvalidator.apiverve.com?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://apiverve.com/marketplace/dmarcvalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 [![Method](https://img.shields.io/badge/Method-GET-blue.svg)](#)
 [![Platform](https://img.shields.io/badge/Platform-Multi--Platform-orange.svg)](#installation)
 
@@ -161,7 +161,7 @@ go get github.com/apiverve/dmarcvalidator-api/go
 
 ## Documentation
 
-- 🏠 **API Home:** [DMARC Validator API](https://dmarcvalidator.apiverve.com?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+- 🏠 **API Home:** [DMARC Validator API](https://apiverve.com/marketplace/dmarcvalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 - 📚 **API Reference:** [docs.apiverve.com/ref/dmarcvalidator](https://docs.apiverve.com/ref/dmarcvalidator)
 - 📖 **OpenAPI Spec:** [openapi.yaml](./openapi.yaml)
 - 💡 **Examples:** [examples/](./examples/)
@@ -214,20 +214,28 @@ A real response from the DMARC Validator API:
     "host": "paypal.com",
     "dmarcHost": "_dmarc.paypal.com",
     "hasDmarc": true,
-    "dmarc_record": "v=DMARC1; p=reject; rua=mailto:d@rua.agari.com; ruf=mailto:d@ruf.agari.com",
+    "dmarc_record": "v=DMARC1; p=reject; rua=mailto:d@rua.agari.com,mailto:dmarc_agg@vali.email; ruf=mailto:d@ruf.agari.com,mailto:MTc4Mzcw@ruf.vali.email",
     "rua": {
-      "email": "d@rua.agari.com",
+      "email": "d@rua.agari.com,dmarc_agg@vali.email",
       "domain": "rua.agari.com",
       "valid": true
     },
     "ruf": {
-      "email": "d@ruf.agari.com",
+      "email": "d@ruf.agari.com,MTc4Mzcw@ruf.vali.email",
       "domain": "ruf.agari.com",
       "valid": true
     },
     "v": "DMARC1",
     "p": "reject",
+    "sp": null,
+    "pct": null,
+    "adkim": null,
+    "aspf": null,
+    "fo": null,
+    "rf": null,
+    "ri": null,
     "valid": true,
+    "issues": [],
     "isEnforced": true,
     "riskScore": 5,
     "riskLevel": "low"
@@ -239,7 +247,7 @@ A real response from the DMARC Validator API:
 
 ## Support & Community
 
-- 🏠 **API Home**: [DMARC Validator API](https://dmarcvalidator.apiverve.com?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+- 🏠 **API Home**: [DMARC Validator API](https://apiverve.com/marketplace/dmarcvalidator?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 - 💬 **Support**: [https://apiverve.com/contact](https://apiverve.com/contact)
 - 🐛 **Issues**: [GitHub Issues](../../issues)
 - 📖 **Documentation**: [https://docs.apiverve.com](https://docs.apiverve.com)

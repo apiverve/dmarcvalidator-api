@@ -2,9 +2,9 @@ openapi: 3.0.4
 info:
   title: DMARC Validator
   description: >-
-    DMARC Validator checks the Domain-based Message Authentication, Reporting
-    and Conformance (DMARC) record for a domain to ensure it is correctly
-    configured.
+    DMARC Validator is a DMARC record validator API that checks the Domain-based
+    Message Authentication, Reporting and Conformance (DMARC) record for a
+    domain to ensure it is correctly configured.
   termsOfService: https://apiverve.com/terms/
   contact:
     name: APIVerve Support
@@ -19,7 +19,7 @@ servers:
 paths:
   /v1/dmarcvalidator:
     get:
-      summary: Validate DMARC Record
+      summary: DMARC Validator
       description: >-
         DMARC Validator checks the Domain-based Message Authentication,
         Reporting and Conformance (DMARC) record for a domain to ensure it is
@@ -58,19 +58,28 @@ paths:
                   dmarcHost: _dmarc.paypal.com
                   hasDmarc: true
                   dmarc_record: >-
-                    v=DMARC1; p=reject; rua=mailto:d@rua.agari.com;
-                    ruf=mailto:d@ruf.agari.com
+                    v=DMARC1; p=reject;
+                    rua=mailto:d@rua.agari.com,mailto:dmarc_agg@vali.email;
+                    ruf=mailto:d@ruf.agari.com,mailto:MTc4Mzcw@ruf.vali.email
                   rua:
-                    email: d@rua.agari.com
+                    email: d@rua.agari.com,dmarc_agg@vali.email
                     domain: rua.agari.com
                     valid: true
                   ruf:
-                    email: d@ruf.agari.com
+                    email: d@ruf.agari.com,MTc4Mzcw@ruf.vali.email
                     domain: ruf.agari.com
                     valid: true
                   v: DMARC1
                   p: reject
+                  sp: null
+                  pct: null
+                  adkim: null
+                  aspf: null
+                  fo: null
+                  rf: null
+                  ri: null
                   valid: true
+                  issues: []
                   isEnforced: true
                   riskScore: 5
                   riskLevel: low
