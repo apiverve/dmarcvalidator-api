@@ -33,7 +33,15 @@ declare module '@apiverve/dmarcvalidator' {
       ruf:         Rua;
       v:           null | string;
       p:           null | string;
+      sp:          null;
+      pct:         null;
+      adkim:       null;
+      aspf:        null;
+      fo:          null;
+      rf:          null;
+      ri:          null;
       valid:       boolean | null;
+      issues:      any[];
       isEnforced:  boolean | null;
       riskScore:   number | null;
       riskLevel:   null | string;
