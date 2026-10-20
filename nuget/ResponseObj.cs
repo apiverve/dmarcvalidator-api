@@ -56,8 +56,32 @@ namespace APIVerve.API.DMARCValidator
         [JsonProperty("p")]
         public string P { get; set; }
 
+        [JsonProperty("sp")]
+        public object Sp { get; set; }
+
+        [JsonProperty("pct")]
+        public object Pct { get; set; }
+
+        [JsonProperty("adkim")]
+        public object Adkim { get; set; }
+
+        [JsonProperty("aspf")]
+        public object Aspf { get; set; }
+
+        [JsonProperty("fo")]
+        public object Fo { get; set; }
+
+        [JsonProperty("rf")]
+        public object Rf { get; set; }
+
+        [JsonProperty("ri")]
+        public object Ri { get; set; }
+
         [JsonProperty("valid")]
         public bool? Valid { get; set; }
+
+        [JsonProperty("issues")]
+        public object[] Issues { get; set; }
 
         [JsonProperty("isEnforced")]
         public bool? IsEnforced { get; set; }

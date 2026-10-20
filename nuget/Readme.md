@@ -1,13 +1,12 @@
-DMARCValidator API
+DMARC Validator API
 ============
 
-DMARC Validator checks the Domain-based Message Authentication, Reporting and Conformance (DMARC) record for a domain to ensure it is correctly configured.
+DMARC Validator is a DMARC record validator API that checks the Domain-based Message Authentication, Reporting and Conformance (DMARC) record for a domain to ensure it is correctly configured.
 
-![Build Status](https://img.shields.io/badge/build-passing-green)
-![Code Climate](https://img.shields.io/badge/maintainability-B-purple)
-![Prod Ready](https://img.shields.io/badge/production-ready-blue)
 
-This is a .NET Wrapper for the [DMARCValidator API](https://dmarcvalidator.apiverve.com?utm_source=nuget&utm_medium=readme)
+[![NuGet version](https://img.shields.io/nuget/v/APIVerve.API.DMARCValidator.svg)](https://www.nuget.org/packages/APIVerve.API.DMARCValidator)
+
+This is a .NET wrapper for the [DMARC Validator API](https://apiverve.com/marketplace/dmarcvalidator?utm_source=nuget&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -40,8 +39,8 @@ From within Visual Studio:
 
 ## Configuration
 
-Before using the dmarcvalidator API client, you have to setup your account and obtain your API Key.
-You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=nuget&utm_medium=readme)
+Before using the DMARC Validator API client, you have to setup your account and obtain your API Key.
+You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=nuget&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -61,8 +60,8 @@ class Program
         var apiClient = new DMARCValidatorAPIClient("[YOUR_API_KEY]");
 
         var queryOptions = new DMARCValidatorQueryOptions {
-    Domain = "paypal.com"
-};
+            Domain = "paypal.com"
+        };
 
         // Make the API call
         try
@@ -92,13 +91,13 @@ class Program
 
 ## Usage
 
-The DMARCValidator API documentation is found here: [https://docs.apiverve.com/ref/dmarcvalidator](https://docs.apiverve.com/ref/dmarcvalidator?utm_source=nuget&utm_medium=readme).
+The DMARC Validator API documentation is found here: [https://docs.apiverve.com/ref/dmarcvalidator](https://docs.apiverve.com/ref/dmarcvalidator?utm_source=nuget&utm_medium=referral&utm_content=readme).
 You can find parameters, example responses, and status codes documented here.
 
 ### Setup
 
 ###### Authentication
-DMARCValidator API uses API Key-based authentication. When you create an instance of the API client, you can pass your API Key as a parameter.
+DMARC Validator API uses API Key-based authentication. When you create an instance of the API client, you can pass your API Key as a parameter.
 
 ```csharp
 // Create an instance of the API client
@@ -125,8 +124,8 @@ public class Example
         var apiClient = new DMARCValidatorAPIClient("[YOUR_API_KEY]");
 
         var queryOptions = new DMARCValidatorQueryOptions {
-    Domain = "paypal.com"
-};
+            Domain = "paypal.com"
+        };
 
         var response = await apiClient.ExecuteAsync(queryOptions);
 
@@ -157,8 +156,8 @@ public class Example
         var apiClient = new DMARCValidatorAPIClient("[YOUR_API_KEY]");
 
         var queryOptions = new DMARCValidatorQueryOptions {
-    Domain = "paypal.com"
-};
+            Domain = "paypal.com"
+        };
 
         var response = apiClient.Execute(queryOptions);
 
@@ -194,8 +193,8 @@ public class Example
         var apiClient = new DMARCValidatorAPIClient("[YOUR_API_KEY]");
 
         var queryOptions = new DMARCValidatorQueryOptions {
-    Domain = "paypal.com"
-};
+            Domain = "paypal.com"
+        };
 
         try
         {
@@ -250,8 +249,8 @@ public class Example
         apiClient.SetRetryDelay(2000);     // Wait 2 seconds between retries
 
         var queryOptions = new DMARCValidatorQueryOptions {
-    Domain = "paypal.com"
-};
+            Domain = "paypal.com"
+        };
 
         try
         {
@@ -370,20 +369,28 @@ using (var apiClient = new DMARCValidatorAPIClient("[YOUR_API_KEY]"))
     "host": "paypal.com",
     "dmarcHost": "_dmarc.paypal.com",
     "hasDmarc": true,
-    "dmarc_record": "v=DMARC1; p=reject; rua=mailto:d@rua.agari.com; ruf=mailto:d@ruf.agari.com",
+    "dmarc_record": "v=DMARC1; p=reject; rua=mailto:d@rua.agari.com,mailto:dmarc_agg@vali.email; ruf=mailto:d@ruf.agari.com,mailto:MTc4Mzcw@ruf.vali.email",
     "rua": {
-      "email": "d@rua.agari.com",
+      "email": "d@rua.agari.com,dmarc_agg@vali.email",
       "domain": "rua.agari.com",
       "valid": true
     },
     "ruf": {
-      "email": "d@ruf.agari.com",
+      "email": "d@ruf.agari.com,MTc4Mzcw@ruf.vali.email",
       "domain": "ruf.agari.com",
       "valid": true
     },
     "v": "DMARC1",
     "p": "reject",
+    "sp": null,
+    "pct": null,
+    "adkim": null,
+    "aspf": null,
+    "fo": null,
+    "rf": null,
+    "ri": null,
     "valid": true,
+    "issues": [],
     "isEnforced": true,
     "riskScore": 5,
     "riskLevel": "low"
@@ -395,7 +402,7 @@ using (var apiClient = new DMARCValidatorAPIClient("[YOUR_API_KEY]"))
 
 ## Customer Support
 
-Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=nuget&utm_medium=readme).
+Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=nuget&utm_medium=referral&utm_content=readme).
 
 ---
 
@@ -406,12 +413,12 @@ Stay up to date by following [@apiverveHQ](https://twitter.com/apiverveHQ) on Tw
 
 ## Legal
 
-All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=nuget&utm_medium=readme) and all legal documents and agreements.
+All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=nuget&utm_medium=referral&utm_content=readme) and all legal documents and agreements.
 
 ---
 
 ## License
-Licensed under the The MIT License (MIT)
+Licensed under the MIT License (MIT)
 
 Copyright (&copy;) 2026 APIVerve, and EvlarSoft LLC
 
