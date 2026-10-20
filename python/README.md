@@ -1,13 +1,12 @@
 DMARC Validator API
 ============
 
-DMARC Validator checks the Domain-based Message Authentication, Reporting and Conformance (DMARC) record for a domain to ensure it is correctly configured.
+DMARC Validator is a DMARC record validator API that checks the Domain-based Message Authentication, Reporting and Conformance (DMARC) record for a domain to ensure it is correctly configured.
 
-![Build Status](https://img.shields.io/badge/build-passing-green)
-![Code Climate](https://img.shields.io/badge/maintainability-B-purple)
-![Prod Ready](https://img.shields.io/badge/production-ready-blue)
 
-This is a Python API Wrapper for the [DMARC Validator API](https://dmarcvalidator.apiverve.com?utm_source=pypi&utm_medium=readme)
+[![PyPI version](https://img.shields.io/pypi/v/apiverve-dmarcvalidator.svg)](https://pypi.org/project/apiverve-dmarcvalidator/)
+
+This is a Python wrapper for the [DMARC Validator API](https://apiverve.com/marketplace/dmarcvalidator?utm_source=pypi&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -29,8 +28,8 @@ pip3 install apiverve-dmarcvalidator
 
 ## Configuration
 
-Before using the dmarcvalidator API client, you have to setup your account and obtain your API Key.
-You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=pypi&utm_medium=readme)
+Before using the DMARC Validator API client, you have to setup your account and obtain your API Key.
+You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=pypi&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -60,7 +59,7 @@ except Exception as e:
 
 ## Usage
 
-The DMARC Validator API documentation is found here: [https://docs.apiverve.com/ref/dmarcvalidator](https://docs.apiverve.com/ref/dmarcvalidator?utm_source=pypi&utm_medium=readme).
+The DMARC Validator API documentation is found here: [https://docs.apiverve.com/ref/dmarcvalidator](https://docs.apiverve.com/ref/dmarcvalidator?utm_source=pypi&utm_medium=referral&utm_content=readme).
 You can find parameters, example responses, and status codes documented here.
 
 ### Setup
@@ -102,23 +101,34 @@ print(result)
   "status": "ok",
   "error": null,
   "data": {
-    "dmarcHost": "_dmarc.paypal.com",
-    "dmarc_record": "v=DMARC1; p=reject; rua=mailto:d@rua.agari.com; ruf=mailto:d@ruf.agari.com",
-    "hasDmarc": true,
     "host": "paypal.com",
-    "p": "reject",
+    "dmarcHost": "_dmarc.paypal.com",
+    "hasDmarc": true,
+    "dmarc_record": "v=DMARC1; p=reject; rua=mailto:d@rua.agari.com,mailto:dmarc_agg@vali.email; ruf=mailto:d@ruf.agari.com,mailto:MTc4Mzcw@ruf.vali.email",
     "rua": {
+      "email": "d@rua.agari.com,dmarc_agg@vali.email",
       "domain": "rua.agari.com",
-      "email": "d@rua.agari.com",
       "valid": true
     },
     "ruf": {
+      "email": "d@ruf.agari.com,MTc4Mzcw@ruf.vali.email",
       "domain": "ruf.agari.com",
-      "email": "d@ruf.agari.com",
       "valid": true
     },
     "v": "DMARC1",
-    "valid": true
+    "p": "reject",
+    "sp": null,
+    "pct": null,
+    "adkim": null,
+    "aspf": null,
+    "fo": null,
+    "rf": null,
+    "ri": null,
+    "valid": true,
+    "issues": [],
+    "isEnforced": true,
+    "riskScore": 5,
+    "riskLevel": "low"
   }
 }
 ```
@@ -246,7 +256,7 @@ finally:
 
 ## Customer Support
 
-Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=pypi&utm_medium=readme).
+Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=pypi&utm_medium=referral&utm_content=readme).
 
 ---
 
@@ -257,12 +267,12 @@ Stay up to date by following [@apiverveHQ](https://twitter.com/apiverveHQ) on Tw
 
 ## Legal
 
-All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=pypi&utm_medium=readme) and all legal documents and agreements.
+All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=pypi&utm_medium=referral&utm_content=readme) and all legal documents and agreements.
 
 ---
 
 ## License
-Licensed under the The MIT License (MIT)
+Licensed under the MIT License (MIT)
 
 Copyright (&copy;) 2026 APIVerve, and EvlarSoft LLC
 
