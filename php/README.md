@@ -1,6 +1,6 @@
 # DMARC Validator API - PHP Package
 
-DMARC Validator checks the Domain-based Message Authentication, Reporting and Conformance (DMARC) record for a domain to ensure it is correctly configured.
+DMARC Validator is a DMARC record validator API that checks the Domain-based Message Authentication, Reporting and Conformance (DMARC) record for a domain to ensure it is correctly configured.
 
 ## Installation
 
@@ -72,20 +72,28 @@ $client = new Client(
     "host": "paypal.com",
     "dmarcHost": "_dmarc.paypal.com",
     "hasDmarc": true,
-    "dmarc_record": "v=DMARC1; p=reject; rua=mailto:d@rua.agari.com; ruf=mailto:d@ruf.agari.com",
+    "dmarc_record": "v=DMARC1; p=reject; rua=mailto:d@rua.agari.com,mailto:dmarc_agg@vali.email; ruf=mailto:d@ruf.agari.com,mailto:MTc4Mzcw@ruf.vali.email",
     "rua": {
-      "email": "d@rua.agari.com",
+      "email": "d@rua.agari.com,dmarc_agg@vali.email",
       "domain": "rua.agari.com",
       "valid": true
     },
     "ruf": {
-      "email": "d@ruf.agari.com",
+      "email": "d@ruf.agari.com,MTc4Mzcw@ruf.vali.email",
       "domain": "ruf.agari.com",
       "valid": true
     },
     "v": "DMARC1",
     "p": "reject",
+    "sp": null,
+    "pct": null,
+    "adkim": null,
+    "aspf": null,
+    "fo": null,
+    "rf": null,
+    "ri": null,
     "valid": true,
+    "issues": [],
     "isEnforced": true,
     "riskScore": 5,
     "riskLevel": "low"
@@ -100,11 +108,11 @@ $client = new Client(
 
 ## Documentation
 
-For more information, visit the [API Documentation](https://docs.apiverve.com/ref/dmarcvalidator?utm_source=packagist&utm_medium=readme).
+For more information, visit the [API Documentation](https://docs.apiverve.com/ref/dmarcvalidator?utm_source=packagist&utm_medium=referral&utm_content=readme).
 
 ## Support
 
-- Website: [https://dmarcvalidator.apiverve.com?utm_source=php&utm_medium=readme](https://dmarcvalidator.apiverve.com?utm_source=php&utm_medium=readme)
+- Website: [https://apiverve.com/marketplace/dmarcvalidator?utm_source=php&utm_medium=referral&utm_content=readme](https://apiverve.com/marketplace/dmarcvalidator?utm_source=php&utm_medium=referral&utm_content=readme)
 - Email: hello@apiverve.com
 
 ## License

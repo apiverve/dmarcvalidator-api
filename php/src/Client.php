@@ -19,7 +19,7 @@ use APIVerve\Dmarcvalidator\Exceptions\ValidationException;
  * print_r($response);
  * ```
  *
- * @see https://dmarcvalidator.apiverve.com?utm_source=php&utm_medium=readme
+ * @see https://apiverve.com/marketplace/dmarcvalidator?utm_source=php&utm_medium=referral&utm_content=readme
  */
 class Client
 {

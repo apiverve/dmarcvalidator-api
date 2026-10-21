@@ -1,7 +1,7 @@
 {
     "name": "apiverve/dmarcvalidator",
-    "description": "DMARC Validator checks the Domain-based Message Authentication, Reporting and Conformance (DMARC) record for a domain to ensure it is correctly configured.",
-    "version": "1.2.0",
+    "description": "DMARC Validator is a DMARC record validator API that checks the Domain-based Message Authentication, Reporting and Conformance (DMARC) record for a domain to ensure it is correctly configured.",
+    "version": "1.2.2",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -15,13 +15,13 @@
         "api",
         "apiverve",
         "dmarcvalidator",
-        "dmarc",
-        "dmarc check",
+        "dmarc validator api",
+        "dmarc api",
+        "dmarc record validator",
         "dmarc validator",
-        "email security",
-        "dns check"
+        "dmarc record lookup"
     ],
-    "homepage": "https://dmarcvalidator.apiverve.com?utm_source=php&utm_medium=homepage",
+    "homepage": "https://apiverve.com/marketplace/dmarcvalidator?utm_source=php&utm_medium=referral&utm_content=homepage",
     "support": {
         "email": "hello@apiverve.com",
         "docs": "https://docs.apiverve.com/ref/dmarcvalidator",
